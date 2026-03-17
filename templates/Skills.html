@@ -1,0 +1,149 @@
+{% extends "base.html" %} 
+
+{% block content %}
+{% comment %}
+<style>
+  .skills {
+    padding: 60px;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .skill {
+    margin-bottom: 20px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 10px;
+  }
+
+  .progress {
+    height: 8px;
+    background: linear-gradient(90deg, #00f5ff, #ff00ff);
+    border-radius: 10px;
+  }
+</style>
+{% endcomment %} {% comment %}
+<section class="skills">
+  <h2>My Skills</h2>
+
+  {% for skill in skills %}
+
+  <div class="skill">
+    <p>{{ skill.name }} - {{ skill.percentage }}%</p>
+
+    <div class="progress-bar">
+      <div class="progress" style="width: {{skill.percentage}}%"></div>
+    </div>
+  </div>
+
+  {% endfor %}
+</section>
+{% endcomment %}
+
+<style>
+  .skills-section {
+    padding: 80px 20px;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .skill {
+    margin-bottom: 25px;
+  }
+
+  .skill-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .skill-header i {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #00f5ff;
+  }
+
+  .skill-name {
+    flex: 1;
+    margin-left: 10px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress {
+    height: 8px;
+    width: 0;
+    background: linear-gradient(90deg, #00f5ff, #ff00ff);
+    border-radius: 10px;
+    transition: width 2s ease;
+  }
+</style>
+
+<section class="skills-section">
+  <h2 class="section-title">My Tech Stack</h2>
+
+  {% for skill in skills %}
+
+  <div class="skill">
+    <div class="skill-header">
+      <i class="{{ skill.icon }}"></i>
+
+      <span class="skill-name">{{ skill.name }}</span>
+
+      <span class="skill-percent" data-percent="{{ skill.percentage }}"
+        >0%</span
+      >
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress" data-width="{{ skill.percentage }}"></div>
+    </div>
+  </div>
+
+  {% endfor %}
+</section>
+
+<script>
+  window.addEventListener("load", function () {
+    const bars = document.querySelectorAll(".progress");
+    const percents = document.querySelectorAll(".skill-percent");
+
+    bars.forEach((bar, index) => {
+      let width = bar.getAttribute("data-width");
+
+      setTimeout(() => {
+        bar.style.width = width + "%";
+      }, 200);
+
+      let count = 0;
+
+      let interval = setInterval(() => {
+        if (count >= width) {
+          clearInterval(interval);
+        } else {
+          count++;
+          percents[index].innerText = count + "%";
+        }
+      }, 20);
+    });
+  });
+</script>
+
+{% endblock %}

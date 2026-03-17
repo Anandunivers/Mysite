@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block content %}
+<section id="about" class="section">
+  <h2 class="animate-on-scroll">Who Am I</h2>
+  <div class="about-content">
+    <div class="about-text animate-on-scroll slide-left">
+      <p>
+        I am Anand Singh, an AI & Machine Learning enthusiast currently pursuing
+        MCA with a background in Computer Science education and robotics
+        training. I have 2+ years of experience as a Senior Computer Science
+        Teacher and currently work as a Robotics & AI Trainer, leading STEM
+        programs using Arduino, ESP32, and LEGO robotics..
+      </p>
+      <p>
+        My technical interests include Python, Django, Machine Learning, Web
+        Development, and Robotics. I enjoy building intelligent systems and
+        developing innovative solutions that combine software development with
+        real-world technology applications.
+      </p>
+    </div>
+    <div class="about-visual animate-on-scroll slide-right">
+      <div class="blockchain-visual">
+        <div class="block">AI</div>
+        <div class="block">ML</div>
+        <div class="block">Robotics</div>
+        <div class="block">Python</div>
+        <div class="block">C</div>
+        <div class="block">DBMS</div>
+        <div class="block">IOT</div>
+        <div class="block">OS</div>
+        <div class="block">Cyber</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-stats animate-on-scroll scale-up">
+    {% for stat in stats %}
+    <div class="about-stat">
+      <span class="about-stat-number">{{ stat.number }}</span>
+      <span class="about-stat-label">{{ stat.label}}</span>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Hexagonal decorations -->
+  <div class="hex-decoration" style="top: 10%; left: 5%"></div>
+  <div
+    class="hex-decoration"
+    style="top: 70%; right: 10%; animation-delay: 2s"
+  ></div>
+  <div
+    class="hex-decoration"
+    style="top: 40%; right: 5%; animation-delay: 4s"
+  ></div>
+</section>
+
+{% endblock %}

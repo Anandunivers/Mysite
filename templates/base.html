@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title > My Protfolio </title></i>
+    
+    {% comment %} <link rel="stylesheet" href="templatemo-chain-summit.css"> {% endcomment %}
+    {% comment %} Css for Django {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="neural-network" id="neuralNetwork"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="/" class="logo">
+                {% comment %} <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> {% endcomment %}
+                    <!-- Hexagon background -->
+                    <polygon points="50,5 85,25 85,65 50,85 15,65 15,25" 
+                             fill="none" 
+                             stroke="url(#gradientStroke)" 
+                             stroke-width="2"/>
+                    
+                    <!-- Neural network nodes -->
+                    <circle cx="50" cy="30" r="4" fill="#00ffff"/>
+                    <circle cx="35" cy="45" r="4" fill="#ff00ff"/>
+                    <circle cx="65" cy="45" r="4" fill="#ff00ff"/>
+                    <circle cx="35" cy="65" r="4" fill="#00ffff"/>
+                    <circle cx="65" cy="65" r="4" fill="#00ffff"/>
+                    <circle cx="50" cy="55" r="5" fill="#7c3aed"/>
+                    
+                    <!-- Connection lines -->
+                    <line x1="50" y1="30" x2="35" y2="45" stroke="#00ffff" stroke-width="1" opacity="0.5"/>
+                    <line x1="50" y1="30" x2="65" y2="45" stroke="#00ffff" stroke-width="1" opacity="0.5"/>
+                    <line x1="35" y1="45" x2="50" y2="55" stroke="#ff00ff" stroke-width="1" opacity="0.5"/>
+                    <line x1="65" y1="45" x2="50" y2="55" stroke="#ff00ff" stroke-width="1" opacity="0.5"/>
+                    <line x1="50" y1="55" x2="35" y2="65" stroke="#7c3aed" stroke-width="1" opacity="0.5"/>
+                    <line x1="50" y1="55" x2="65" y2="65" stroke="#7c3aed" stroke-width="1" opacity="0.5"/>
+                    
+                    <!-- Gradient definitions -->
+                    <defs>
+                        <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#ff00ff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text"><i class="fa-solid fa-briefcase" style="color: rgb(13, 241, 233);"></i></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/"><i class="fa-solid fa-house fa-fade" style="color: rgb(13, 241, 233);"></i></a></li>
+                {% comment %} <li><a href="/about/">About</a></li>  {% endcomment %}
+                <li><a href="/Skills/">Skills</a></li>
+                <li><a href="/Project/">Project</a></li>
+                {% comment %} <li><a href="/Contact/">Contact</a></li> {% endcomment %}
+               
+               
+                
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="/" onclick="closeMenu()">Home</a>
+            {% comment %} <a href="/about/" onclick="closeMenu()">About</a> {% endcomment %}
+            <a href="/Skills/" onclick="closeMenu()">Skills</a>
+             <a href="/Project/" onclick="closeMenu()">Project</a>
+            {% comment %} <a href="/Contact/" onclick="closeMenu()">Contact</a> {% endcomment %}
+            
+            
+        </div>
+    </header>
+
+
+   
+
+ 
+    {% block content %}
+    
+    {% endblock  %}
+    {% include "footer.html" %}
+
+{% comment %} <script src="templatemo-chain-scripts.js"></script> {% endcomment %}
+{% comment %} Js file for Django {% endcomment %}
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

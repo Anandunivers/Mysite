@@ -1,0 +1,125 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<!-- Register Section -->
+<section id="register" class="section">
+  {% comment %} PoP Message for the user {% if messages%} {% for message in
+  messages %}
+  <div class="success-message" id="successMessage">{{ message }}</div>
+  {% endfor %} {% endif %} {% endcomment %}
+  <div class="register-section animate-on-scroll">
+    <div class="register-content">
+      <h2 class="register-title">Contact</h2>
+
+      <a href="{% static 'resume.pdf' %}" class="resume-btn" download>
+        Download Resume
+      </a>
+
+      <div id="formMessage" class="form-message"></div>
+    </div>
+  </div>
+
+  <!-- Contact Information -->
+  <div class="contact-info-section animate-on-scroll">
+    <div class="contact-container">
+      <!-- Contact Form Column -->
+      <form class="contact-form" method="POST">
+        {% csrf_token %}
+
+        <div class="form-field">
+          <label>Name</label>
+          <input
+            type="text"
+            name="name"
+            id="contactName"
+            required
+            placeholder="Your name"
+          />
+        </div>
+
+        <div class="form-field">
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            id="contactEmail"
+            required
+            placeholder="your@email.com"
+          />
+        </div>
+
+        <div class="form-field">
+          <label>Subject</label>
+          <input
+            type="text"
+            name="subject"
+            id="contactSubject"
+            required
+            placeholder="How can we help?"
+          />
+        </div>
+
+        <div class="form-field">
+          <label>Message</label>
+          <textarea
+            name="message"
+            id="contactMessage"
+            required
+            placeholder="Your message..."
+          ></textarea>
+        </div>
+
+        {% comment %} <!-- Google reCAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="6Lfz1YgsAAAAAHZNrmfc0ykOh8lUgyZnCQzr3Itl"></div> {% endcomment %}
+
+        <button type="submit" class="contact-submit-btn">Send Message</button>
+      </form>
+
+      <!-- Contact Info Column -->
+      <div class="contact-info-column">
+        <h3 class="contact-info-title">Get In Touch</h3>
+        <div class="contact-info-grid">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div class="contact-details">
+              <span class="contact-label">Location</span>
+              <span class="contact-value">Lucknow<br /></span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fa-solid fa-envelope-circle-check fa-fade"></i>
+            </div>
+            <div class="contact-details">
+              <span class="contact-label">Email</span>
+              <span class="contact-value"
+                ><a href="mailto:info@chainsummit.com"
+                  >anandsinghdsvv2002@gmail.com</a
+                ></span
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                />
+              </svg>
+            </div>
+            <div class="contact-details">
+              <span class="contact-label">Phone</span>
+              <span class="contact-value">9519046797</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock %}
